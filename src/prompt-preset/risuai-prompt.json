@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PromptPreset",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "content": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "PLAIN",
+                            "JAILBREAK",
+                            "CHAT_HISTORY",
+                            "PERSONA",
+                            "CHARACTER",
+                            "WRITERS_NOTE",
+                            "LOREBOOK",
+                            "MEMORY",
+                            "FINAL"
+                        ]
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string",
+                        "enum": [
+                            "USER",
+                            "CHARACTER",
+                            "SYSTEM"
+                        ]
+                    }
+                },
+                "required": [
+                    "name",
+                    "type",
+                    "content",
+                    "role"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "name",
+        "content"
+    ]
+}

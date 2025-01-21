@@ -1,0 +1,23 @@
+{
+    "name": "risucord",
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite-node src/main.ts",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "discord.js": "^14.17.2",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.5",
+        "standard": "^17.1.2",
+        "ts-standard": "^12.0.2",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0",
+        "vite-node": "^2.1.8"
+    },
+    "packageManager": "pnpm@9.15.2"
+}
