@@ -1,57 +1,274 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "PromptPreset",
+    "title": "PromptPresetSchema",
     "type": "object",
     "properties": {
+        "$schema": {
+            "type": "string"
+        },
         "name": {
             "type": "string"
         },
         "content": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
+                "oneOf": [
+                    {
+                        "description": "PlainPreset",
+                        "properties": {
+                            "type": {
+                                "const": "PLAIN"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name",
+                            "content"
+                        ],
+                        "additionalProperties": false
                     },
-                    "type": {
-                        "type": "string",
-                        "enum": [
-                            "PLAIN",
-                            "JAILBREAK",
-                            "CHAT_HISTORY",
-                            "PERSONA",
-                            "CHARACTER",
-                            "WRITERS_NOTE",
-                            "LOREBOOK",
-                            "MEMORY",
-                            "FINAL"
-                        ]
+                    {
+                        "description": "JailbreakPreset",
+                        "properties": {
+                            "type": {
+                                "const": "JAILBREAK"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name",
+                            "content"
+                        ],
+                        "additionalProperties": false
                     },
-                    "content": {
-                        "type": "string"
+                    {
+                        "description": "ChatHistoryPreset",
+                        "properties": {
+                            "type": {
+                                "const": "CHAT_HISTORY"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "interval": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": [
+                                            "number",
+                                            "null"
+                                        ]
+                                    }
+                                ],
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
                     },
-                    "role": {
-                        "type": "string",
-                        "enum": [
-                            "USER",
-                            "CHARACTER",
-                            "SYSTEM"
-                        ]
+                    {
+                        "description": "PersonaPreset",
+                        "properties": {
+                            "type": {
+                                "const": "PERSONA"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "CharacterPreset",
+                        "properties": {
+                            "type": {
+                                "const": "CHARACTER"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "WritersNotePreset",
+                        "properties": {
+                            "type": {
+                                "const": "WRITERS_NOTE"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "LorebookPreset",
+                        "properties": {
+                            "type": {
+                                "const": "LOREBOOK"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "MemoryPreset",
+                        "properties": {
+                            "type": {
+                                "const": "MEMORY"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            },
+                            "content": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "FinalPreset",
+                        "properties": {
+                            "type": {
+                                "const": "FINAL"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string",
+                                "enum": [
+                                    "USER",
+                                    "CHARACTER",
+                                    "SYSTEM"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "name"
+                        ],
+                        "additionalProperties": false
                     }
-                },
-                "required": [
-                    "name",
-                    "type",
-                    "content",
-                    "role"
-                ],
-                "additionalProperties": false
+                ]
             }
         }
     },
     "required": [
         "name",
         "content"
-    ]
+    ],
+    "additionalProperties": false
 }
