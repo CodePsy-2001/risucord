@@ -1,3 +1,4 @@
+$schema: https://raw.githubusercontent.com/CodePsy-2001/risucord/refs/heads/main/src/prompt-preset/risuai-prompt.json
 name: nature
 content:
   - name: 시스템 셋팅
